@@ -1,6 +1,6 @@
 # bedrock-basic-authz-server ChangeLog
 
-## 1.1.0 - 2025-01-dd
+## 1.1.0 - 2025-01-27
 
 ### Changed
 - Use `secretHash` instead of `passwordHash` (now deprecated but still
