@@ -265,7 +265,7 @@ describe('http API', () => {
         result = await helpers.requestOAuth2AccessToken({
           url,
           clientId: clients.authorizedClient.id,
-          password: clients.authorizedClient.id,
+          secret: clients.authorizedClient.id,
           requestedScopes: [`read:${target}`]
         });
       } catch(e) {
@@ -282,7 +282,7 @@ describe('http API', () => {
         result = await helpers.requestOAuth2AccessToken({
           url,
           clientId: clients.authorizedClient.id,
-          password: clients.authorizedClient.id,
+          secret: clients.authorizedClient.id,
           requestedScopes: [`read:${target}`, `write:${target}`]
         });
       } catch(e) {
@@ -299,7 +299,7 @@ describe('http API', () => {
         result = await helpers.requestOAuth2AccessToken({
           url,
           clientId: clients.authorizedClient.id,
-          password: clients.authorizedClient.id,
+          secret: clients.authorizedClient.id,
           requestedScopes: [`read:/`]
         });
       } catch(e) {
@@ -317,7 +317,7 @@ describe('http API', () => {
         result = await helpers.requestOAuth2AccessToken({
           url,
           clientId: clients.unauthorizedClient.id,
-          password: clients.unauthorizedClient.id,
+          secret: clients.unauthorizedClient.id,
           requestedScopes: [`read:${target}`]
         });
       } catch(e) {
@@ -334,7 +334,7 @@ describe('http API', () => {
       } = await helpers.requestOAuth2AccessToken({
         url,
         clientId: clients.authorizedClient.id,
-        password: clients.authorizedClient.id,
+        secret: clients.authorizedClient.id,
         requestedScopes: [`read:${target}`]
       });
       let err;

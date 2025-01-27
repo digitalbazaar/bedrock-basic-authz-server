@@ -26,12 +26,12 @@ clients.authorizedClient = {
     'read:/test-authorize-request',
     'write:/test-authorize-request'
   ],
-  passwordHash: 'qpMmqCHdQ0FkyVCF1Sfuprt4jKZ4p4Id1LhSLxmdmu8'
+  secretHash: 'qpMmqCHdQ0FkyVCF1Sfuprt4jKZ4p4Id1LhSLxmdmu8'
 };
 clients.unauthorizedClient = {
   id: '5165774d-fadc-484b-8a78-d2b049721b52',
   // no requestable scopes
   requestableScopes: [],
   // hash of `client_id`
-  passwordHash: 'JySRI3hb_DJ3rV4oUulOowEcLkRS4DCMdnfzJx57Z3g'
+  secretHash: 'JySRI3hb_DJ3rV4oUulOowEcLkRS4DCMdnfzJx57Z3g'
 };

@@ -62,13 +62,13 @@ export async function doOAuth2Request({url, json, accessToken}) {
 }
 
 export async function requestOAuth2AccessToken({
-  url, clientId, password, requestedScopes
+  url, clientId, secret, requestedScopes
 }) {
   const body = new URLSearchParams({
     grant_type: 'client_credentials',
     scope: requestedScopes.join(' ')
   });
-  const credentials = Buffer.from(`${clientId}:${password}`).toString('base64');
+  const credentials = Buffer.from(`${clientId}:${secret}`).toString('base64');
   const headers = {
     accept: 'application/json',
     authorization: `Basic ${credentials}`
