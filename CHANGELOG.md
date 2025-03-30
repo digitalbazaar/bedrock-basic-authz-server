@@ -1,6 +1,6 @@
 # bedrock-basic-authz-server ChangeLog
 
-## 1.2.0 - 2025-mm-dd
+## 1.2.0 - 2025-03-30
 
 ### Added
 - Add `getClient({clientId})` optional function to be passed to
