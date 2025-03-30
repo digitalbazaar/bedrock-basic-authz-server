@@ -351,5 +351,29 @@ describe('http API', () => {
       should.exist(result);
       result.data.should.deep.equal({success: true});
     });
+    it('succeeds using custom client retrieval', async () => {
+      const customClientId = '5f4e027b-efb1-4bf4-b741-69d16338e47e';
+      const {
+        data: {access_token: accessToken}
+      } = await helpers.requestOAuth2AccessToken({
+        url,
+        clientId: customClientId,
+        secret: customClientId,
+        requestedScopes: [`read:${target}`]
+      });
+      let err;
+      let result;
+      try {
+        result = await helpers.doOAuth2Request({
+          url: `${bedrock.config.server.baseUri}${target}`,
+          accessToken
+        });
+      } catch(e) {
+        err = e;
+      }
+      assertNoError(err);
+      should.exist(result);
+      result.data.should.deep.equal({success: true});
+    });
   });
 });
