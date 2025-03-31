@@ -22,7 +22,7 @@ bedrock.events.on('bedrock-express.configure.routes', app => {
       // now return client w/custom storage implementation
       const client = {
         id: '5f4e027b-efb1-4bf4-b741-69d16338e47e',
-        requestableScopes: ['read:/test-authorize-request'],
+        allowedScopes: ['read:/test-authorize-request'],
         secretHash: 'wkueZ4zwWnw6J1xV3jtEfSqnE7yJutgcWL-sQb7OnZ8'
       };
       return client;

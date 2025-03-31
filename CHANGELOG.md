@@ -1,5 +1,10 @@
 # bedrock-basic-authz-server ChangeLog
 
+## 1.3.0 - 2025-03-dd
+
+### Changed
+- Deprecate `requestableScopes`; replaced with `allowedScopes`.
+
 ## 1.2.0 - 2025-03-30
 
 ### Added
