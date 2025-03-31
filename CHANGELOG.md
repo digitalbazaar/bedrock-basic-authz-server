@@ -1,5 +1,17 @@
 # bedrock-basic-authz-server ChangeLog
 
+## 1.4.0 - 2025-03-dd
+
+### Added
+- Allow oauth2 clients to be configured for use with a specific `audience`,
+  i.e., allow this module to provide an oauth2 authz server for namespaced
+  HTTP routes. If an application serves `/<namespaceA>/<namespaceB>/etc`
+  routes, then clients can be configured to specifically only work with
+  particular namespaces or sub-namespaces. When `audience` is not set on
+  a client, it will only work with routes that are not namespaced in this
+  way, i.e., non-namespaced and namespaced clients will not be able to
+  access each others' resources.
+
 ## 1.3.0 - 2025-03-31
 
 ### Changed

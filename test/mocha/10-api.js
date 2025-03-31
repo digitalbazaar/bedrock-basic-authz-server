@@ -375,5 +375,80 @@ describe('http API', () => {
       should.exist(result);
       result.data.should.deep.equal({success: true});
     });
+    it('succeeds using namespaced client', async () => {
+      const namespacedClientId = 'ee8f6e61-a6c7-4ada-846e-9cbca3b15661';
+      const {
+        data: {access_token: accessToken}
+      } = await helpers.requestOAuth2AccessToken({
+        url,
+        clientId: namespacedClientId,
+        secret: namespacedClientId,
+        requestedScopes: [`read:${target}`]
+      });
+      let err;
+      let result;
+      try {
+        result = await helpers.doOAuth2Request({
+          url: `${bedrock.config.server.baseUri}/namespace${target}`,
+          accessToken
+        });
+      } catch(e) {
+        err = e;
+      }
+      assertNoError(err);
+      should.exist(result);
+      result.data.should.deep.equal({success: true});
+    });
+    it('fails w/ namespaced client w/o proper audience', async () => {
+      const namespacedClientId = 'ee8f6e61-a6c7-4ada-846e-9cbca3b15661';
+      const {
+        data: {access_token: accessToken}
+      } = await helpers.requestOAuth2AccessToken({
+        url,
+        clientId: namespacedClientId,
+        secret: namespacedClientId,
+        requestedScopes: [`read:${target}`]
+      });
+      let err;
+      let result;
+      try {
+        result = await helpers.doOAuth2Request({
+          // namespaced client should not be able to access this URL
+          url: `${bedrock.config.server.baseUri}${target}`,
+          accessToken
+        });
+      } catch(e) {
+        err = e;
+      }
+      should.exist(err);
+      should.not.exist(result);
+      err.status.should.equal(403);
+      err.data.name.should.equal('NotAllowedError');
+    });
+    it('fails w/ non-namespaced client w/o proper scope', async () => {
+      const {
+        data: {access_token: accessToken}
+      } = await helpers.requestOAuth2AccessToken({
+        url,
+        clientId: clients.authorizedClient.id,
+        secret: clients.authorizedClient.id,
+        requestedScopes: [`read:${target}`]
+      });
+      let err;
+      let result;
+      try {
+        result = await helpers.doOAuth2Request({
+          // non-namespaced client should not be able to access this URL
+          url: `${bedrock.config.server.baseUri}/namespace${target}`,
+          accessToken
+        });
+      } catch(e) {
+        err = e;
+      }
+      should.exist(err);
+      should.not.exist(result);
+      err.status.should.equal(403);
+      err.data.name.should.equal('NotAllowedError');
+    });
   });
 });
