@@ -1,6 +1,6 @@
 # bedrock-basic-authz-server ChangeLog
 
-## 1.4.0 - 2025-03-dd
+## 1.4.0 - 2025-03-31
 
 ### Added
 - Allow oauth2 clients to be configured for use with a specific `audience`,
