@@ -1,6 +1,6 @@
 # bedrock-basic-authz-server ChangeLog
 
-## 1.4.1 - 2025-10-xx
+## 1.4.1 - 2025-10-15
 
 ### Fixed
 - Fix `@bedrock/app-identity` peer dependency version constraint.
