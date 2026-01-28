@@ -85,7 +85,7 @@ const secretHash = createHash('sha256').update(secret).digest('base64url');
 
 ## License
 
-[Apache-2.0 License](LICENSE).
+See [LICENSE](LICENSE) for details.
 
 [Bedrock]: https://github.com/digitalbazaar/bedrock
 [zcaps]: https://w3c-ccg.github.io/zcap-spec/
