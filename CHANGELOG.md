@@ -1,6 +1,6 @@
 # bedrock-basic-authz-server ChangeLog
 
-## 1.4.2 - 2026-01-dd
+## 1.4.2 - 2026-01-27
 
 ### Changed
 - Remove audience baseURI prefix validation as too restrictive.
