@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2025 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2026 Digital Bazaar, Inc. All rights reserved.
  */
 import {_importOAuth2Client} from
   '@bedrock/basic-authz-server/lib/http/oauth2.js';
