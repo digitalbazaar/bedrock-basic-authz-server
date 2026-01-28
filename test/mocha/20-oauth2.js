@@ -15,7 +15,7 @@ describe('oauth2', () => {
             id: 'test-external-audience',
             allowedScopes: ['read:/test'],
             audience: 'https://external.example.com',
-            secretHash: 'NOT-A-REAL-SECRET-HASH'
+            secretHash: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
           }
         });
       } catch(e) {
